@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统注册页</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+        #kuang {
+            background-color: #fafafa;
+            height: 600px;
+            margin-top: 15%;
+            padding-left: 0;
+        }
+
+        img {
+            margin-top: -8%;
+            margin-left: 3%;
+
+        }
+
+        h2 {
+            margin-top: 30%;
+            padding-left: 10px;
+        }
+
+        .shu {
+
+            color: #888;
+
+
+            border: 1px solid #C5E2FF;
+            background: #FBFBFB;
+            outline: 0;
+            -webkit-box-shadow: inset 0px 1px 6px #ECF3F5;
+            box-shadow: inset 0px 1px 6px #ECF3F5;
+            font: 200 12px/25px Arial, Helvetica, sans-serif;
+            height: 40px;
+            display: inline-block;
+            line-height: 25px;
+            margin-bottom: 5%;
+            padding-bottom: 5px;
+
+
+
+        }
+
+        #shu1 {
+            margin-top: 5%;
+        }
+
+        #shu4 {
+            margin-top: 5%;
+        }
+
+        p {
+            display: inline-block;
+
+
+
+
+        }
+
+        .kuai {
+            margin-left: 5%;
+        }
+
+        #p2 {
+            margin-top: 3%;
+
+        }
+
+        #p1 {
+            margin-top: 7%;
+        }
+
+        button {
+            height: 40px;
+        }
+
+
+
+        .loader {
+            text-align: center;
+        }
+
+        .loader span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 10px;
+            height: 10px;
+            margin: 50px auto;
+            background: #58bdff;
+            border-radius: 50px;
+            -webkit-animation: loader 0.9s infinite alternate;
+            margin-top: 5%;
+
+
+        }
+
+        .loader span:nth-of-type(1) {
+            margin-left: 2%;
+        }
+
+        .loader span:nth-of-type(2) {
+            -webkit-animation-delay: 0.3s;
+
+        }
+
+        .loader span:nth-of-type(3) {
+            -webkit-animation-delay: 0.6s;
+
+        }
+
+        .loader span:nth-of-type(4) {
+            -webkit-animation-delay: 0.9s;
+
+        }
+
+        .loader span:nth-of-type(5) {
+            -webkit-animation-delay: 1.2s;
+
+        }
+
+        .loader span:nth-of-type(6) {
+            -webkit-animation-delay: 1.5s;
+
+        }
+
+        @-webkit-keyframes loader {
+            0% {
+                width: 10px;
+                height: 10px;
+                opacity: 0.9;
+                -webkit-transform: translateY(0);
+            }
+            100% {
+                width: 24px;
+                height: 24px;
+                opacity: 0.1;
+                -webkit-transform: translateY(-21px);
+            }
+        }
+
+        #zi {}
+
+        #loader {}
+
+        #su {
+            margin-left: 18%;
+            margin-top: 20%;
+            display: none;
+        }
+
+        #deng {
+            display: none;
+        }
+
+        #su2 {
+            margin-left: 27%;
+            margin-top: 30%;
+        }
+
+        #tu {
+            display: none;
+        }
+
+        ::-webkit-input-placeholder {
+            color: #d3d6d7;
+        }
+
+        :-ms-input-placeholder {
+            color: #d3d6d7;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="container">
+            <div class="col-md-12" id="kuang">
+                <div class="col-md-7" style="background-color: #f2f6f8; padding-left: 0;height: 600px;">
+                    <img src="./sucai/libr.png" alt="" class="img-responsive col-md-offset-1 col-md-10">
+                </div>
+
+                <!--     注册框          -->
+                <div class="col-md-5 " id="zi">
+                    <h2 class="text-center">注册</h2>
+                    <div class="col-md-10 kuai">
+                        <p class="col-md-3 text-right " id="p1">用户名</p>
+                        <input type="text" id="shu1" class="shu col-md-8 ">
+                        <p class="col-md-3 text-right" id="p2">密&nbsp;&nbsp;&nbsp;码</p>
+                        <input type="password" id="shu2" class="shu col-md-8 ">
+                        <p class="col-md-3 text-right" id="p2">邮&nbsp;&nbsp;&nbsp;箱</p>
+                        <input type="email" id="shu3" class="shu col-md-8 ">
+                        <button class="btn btn-primary col-md-8 col-md-offset-3" onclick="hid()">注册</button>
+
+
+
+
+                    </div>
+                    <!--   动画-->
+
+
+                </div>
+                <div class="loader" id="loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="col-md-5 img-responsive">
+                    <img src="./sucai/success.png" alt="" id="su">
+
+                </div>
+
+
+                <!--      登录框          -->
+
+                <div class="col-md-5 " id="deng">
+                    <h2 class="text-center">登录</h2>
+                    <div class="col-md-10 kuai">
+                        <p class="col-md-3 text-right " id="p1">用户名</p>
+                        <input type="text" id="shu4" class="shu col-md-8 " placeholder="hello">
+                        <p class="col-md-3 text-right" id="p2">密&nbsp;&nbsp;&nbsp;码</p>
+                        <input type="password" id="shu5" class="shu col-md-8 " placeholder="123456">
+
+                        <button class="btn btn-primary col-md-8 col-md-offset-3" id="de">登录</button>
+                        <div class="col-md-12" style="margin-left: 18%;">
+                        <a href="manager.html" style="margin-top: 15%;margin-left: 25%;"><h4>如果跳转不成功，点击这里跳转</h4></a>
+
+</div>
+
+
+                    </div>
+
+
+
+                </div>
+
+                <!--      登陆成功提示      -->
+                <div class="col-md-5 img-responsive" id="tu">
+                    <img src="./sucai/ds.png" alt="" id="su2">
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        // var wid = $(window).width();
+        var hei = $(window).height();
+        // console.log(wid);
+        console.log(hei);
+        $("#box").css({
+            "background-color": "#58bdff",
+            //"width": wid,
+            "height": hei
+        });
+
+        function hid() {
+              
+            
+             var shu1 = $("#shu1").val();
+            var shu2 = $("#shu2").val();
+            var shu3 = $("#shu2").val();
+            
+            if(shu1==""||shu2==""||shu3==""){
+                                    alert("请将注册信息填写完整");
+                                }
+            else{
+        
+            $("#zi").hide();
+            $("#loader").hide();
+            $("#su").show();
+            setTimeout("hid2()", 600);
+              
+               
+            }
+                }
+       
+
+        function hid2() {
+            $("#su").hide();
+            $("#deng").show();
+        }
+
+        //引入json数据 用户数据
+
+        $.ajax({
+            url: "user.json",
+            dataType: "json",
+
+            success: function(data) {
+
+                //data -- 请求成功的相应数据 responseText
+
+                console.log(data);
+
+                $.each(data.result.list, function(index, item) {
+                    console.log(item.username);
+                    console.log(item.password);
+                    var username = item.username;
+                    var password = item.password;
+
+                })
+
+
+
+                $(document).ready(function() {
+
+                      
+                    
+                    
+                    $(".kuai").on("click", "#de", denglu);
+
+                    function denglu() {
+                        var shu4 = $("#shu4").val();
+                        var shu5 = $("#shu5").val().toString();
+                        console.log(shu4);
+                        console.log(shu5);
+                        var len = data.result.list.length;
+                        console.log(len);
+                        for (var i = 0; i < len; i++) {
+                            if (shu4 == data.result.list[i].username && shu5 == data.result.list[i].password) {
+                                console.log("success");
+                                $("#deng").hide();
+                                $("#tu").show();
+
+                              
+                                setTimeout(function(){console.log("jump");
+                                     location.href="manager.html";                      }, 600);
+                              
+                            } else {
+                                  if(shu4==""||shu5==""){
+                                    alert("请将用户名和密码填写完整");
+                                }else{
+                                console.log("fa");
+                                alert("登录失败");}
+                            }
+                        }
+
+                    }
+                });
+
+
+            }
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery中的ajax</title>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+    <script>
+    
+    /* 
+    $.ajax()
+    */
+    /*
+    $.ajax({
+    url:
+    type:请求方式.默认是get
+    data:发送给服务器的请求参数
+    contentType:发送给服务器的数据格式
+    dataType:规定服务器返回的数据格式
+    success:请求成功的回调函数
+    error:请求失败的回调函数
+    
+    })
+    */
+    $.ajax({
+        url:"books.json",
+           dataType:"json",
+        success:function(data,textStatus){
+            console.log("--成功--");
+            //data -- 请求成功的相应数据 responseText
+            //textStatus -- 字符串 请求状态
+            console.log(data);
+            console.log(textStatus);
+            $.each(data.result.list,function(index,item){
+                console.log(item.bookname);
+            })
+        },
+        error:function(jqxhr,textStatus,err){
+            console.log(jqxhr,textStatus,err)
+        }
+        
+    })    
+        
+        
+    </script>
+</body>
+</html>

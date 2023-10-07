@@ -1,0 +1,13 @@
+{
+    "method":"ajaxTest",
+    "result":{
+        "list":[
+            {
+                "username":"hello",
+                "password":"123456"
+                
+            }
+        ],
+        "totalnumber":1
+    }
+}
